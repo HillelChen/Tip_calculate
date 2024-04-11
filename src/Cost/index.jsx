@@ -10,7 +10,8 @@ export default function Cost({ MealCost, setMealCost }) {
 
   return (
     <div>
-      <p>How much was the bill? <input type="text" onChange={Mealco} /></p>
+      <p>How much was the bill? <input type="text" placeholder='Bill value' value={MealCost} onChange={e=>setMealCost(Number(e.target.value))} /></p>
+      {/* <p>How much was the bill? <input type="text" placeholder='Bill value'  onChange={Mealco} /></p> */}
     </div>
   )
 }

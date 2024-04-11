@@ -1,10 +1,10 @@
 import React from 'react'
 
 
-export default function Reset({ MealCost, setMealCost }) {
+export default function Reset({ setMealCost }) {
 
     function handleReset() {
-        setMealCost(0)
+        setMealCost("")
     }
 
     return (

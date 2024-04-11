@@ -3,25 +3,32 @@ import { useState } from 'react';
 import styles from "./style.module.css"
 
 
-export default function Service() {
+export default function Service({MealCost ,setMealCost , tip ,setTip , children}) {
 
-    const [selectedOption, setSelectedOption] = useState('Dissatisfied (0%)');
+  function handleOption(value) {
+    setMealCost((value+1)* MealCost )
+  }
 
-    const handleOptionChange = (event) => {
-        setSelectedOption(event.target.value);
-    };
+    // const [selectedOption, setSelectedOption] = useState('Dissatisfied (0%)');
+
+    // const handleOptionChange = (event) => {
+    //     setSelectedOption(event.target.value);
+    // };
 
     return (
-        <div>
-        <p>How did you like the service?  
-          <label htmlFor="options" className={styles.label}></label>
-          <select id="options" value={selectedOption} onChange={handleOptionChange}>
-            <option value="option1">Dissatisfied (0%)</option>
-            <option value="option2">It was OK (5%)</option>
-            <option value="option3">It was good (10%)</option>
-            <option value="option4">It was amazing! (20%)</option>
+        <div> 
+          {children} 
+          {/* <label htmlFor="options" className={styles.label}></label> */}
+          {/* <select> */}
+          <select value={tip} onChange={e=>setTip(Number(e.target.value))}>
+            <option value="0" >Dissatisfied (0%)</option>
+            <option value="5" >It was OK (5%)</option>
+            <option value="10">It was good (10%)</option>
+            <option value="20">It was amazing! (20%)</option>
+
+            {/* <option value="option1" onClick={handleOption(value)}>Dissatisfied (0%)</option>
+            <option value="option2"  onClick={handleOption(value)}>It was OK (5%)</option> */}
           </select>
-        </p>
       </div>
       
     )
